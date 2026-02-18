@@ -15,7 +15,7 @@
  --bg-color: #B0C4DE;
  --second-bg-color: #161616;
  --text-color: #fff;
- --main-color: #7b4bb7;
+ --main-color: #00BFFF;
 }
 
 html {
@@ -25,7 +25,7 @@ html {
 
 body {
   overflow: hidden;
-  background: #B0C4DE;
+  background: var(--bg-color);
   font-family: "Poppins", sans-serif;
   color: var(--text-color);
 }
@@ -79,7 +79,7 @@ header {
 
 .logo {
   font-size: 3rem;
-  color: var(#2ecc71);
+  color: var(--main-color);
   font-weight: 800;
   cursor: pointer;
   transition: 0.6s ease;
@@ -91,7 +91,7 @@ header {
 
 .navbar a {
   font-size: 1.8rem;
-  color: white;
+  color: var(--text-color);
   margin-left: 4rem;
   font-weight: 500;
   transition: 0.4s ease;
@@ -106,7 +106,7 @@ header {
 
 #icone-menu {
   font-size: 3.6rem;
-  color: #00BFFF;
+  color: (var(--main-color));
   display: none;
 }
 
@@ -140,6 +140,7 @@ header {
 
   .navbar a:hover,
   .navbar a.active {
+    color: var(--main-color);
     padding: 1rem;
     border-radius: 0.5rem;
     border-bottom: 0.5rem solid #00BFFF;
