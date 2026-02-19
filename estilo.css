@@ -98,7 +98,7 @@ html::-webkit-scrollbar-thumb {
    ========================================= */
 @media (max-width: 995px) {
   .header {
-    padding: 2rem 3%;
+    padding: 1rem 3%;
   }
 
   .icone-menu {
@@ -220,7 +220,7 @@ span {
   border-radius: 50%;
   color: var(--main-color);
   margin: 3rem 1.5rem 3rem 0;
-  transition: 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .social-icon a:hover{
@@ -251,6 +251,29 @@ span {
   box-shadow: 0 0 25px var(--main-color);
 }
 
+/* Botão Voltar ao Topo */
+.btn-topo {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  background: var(--main-color);
+  color: var(--second-bg-color);
+  padding: 1.2rem 1.6rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  display: none; /* Começa escondido */
+  z-index: 99; /* Fica acima dos outros elementos */
+  transition: 0.4s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.btn-topo:hover {
+  transform: scale(1.1) translateY(-5px);
+  background: var(--text-color);
+  color: var(--main-color);
+  box-shadow: 0 0 25px var(--main-color);
+}
+
 /* Animação Typing */
 .typing-text {
   font-size: 34px;
@@ -261,6 +284,7 @@ span {
 .typing-text span {
   position: relative;
   padding-right: 9px;
+  white-space: nowrap;
 }
 
 .typing-text span::before{
@@ -377,6 +401,10 @@ span {
    SKILLS
    ========================================= */
 .skills {
+  min-height: auto;
+  padding-top: 12rem;
+  padding-bottom: 8rem;
+  justify-content: flex-start;
   background: var(--bg-color);
 }
 
@@ -551,24 +579,33 @@ span {
   color: black;
 }
 
-@media screen and (max-width:600px) {
-  .education .timeline { margin-top: 2rem; }
-  .education .timeline::after { left: 31px; }
+@media screen and (max-width: 600px) {
+  .education .timeline { 
+    margin-top: 2rem; 
+  }
+  .education .timeline::after { 
+    left: 31px; 
+  }
   .education .container {
     width: 100%;
     padding-left: 8rem;
     padding-right: 2rem;
   }
-  .education .container::after { font-size: 2.2rem; }
-  .education .container::before {
-    left: 61px;
-    border: medium solid var(--main-color);
+  .education .right { 
+    left: 0; 
+  }
+  /* Centraliza as bolinhas (ícones) exatamente em cima da linha */
+  .education .left::after,
+  .education .right::after { 
+    left: 15px; 
+  }
+  /* Ajusta o posicionamento das setinhas para a versão mobile */
+  .education .left::before,
+  .education .right::before {
+    left: 70px; /* Posiciona a seta exatamente na borda do balão */
     border-width: 10px 10px 10px 0;
     border-color: transparent var(--main-color) transparent transparent;
   }
-  .education .left::after,
-  .education .right::after { left: 15px; }
-  .education .right { left: 0%; }
 }
 
 /* =========================================
@@ -635,7 +672,7 @@ span {
   text-align: center;
   border-radius: 50%;
   margin: 0 10px;
-  transition: 0.4s ease; 
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
 .footer .social a:hover {
@@ -699,4 +736,48 @@ footer .copyright {
     grid-template-columns: repeat(1, 1fr);
     margin: 0 5rem;
   }
+}
+
+/* =========================================
+   BARRAS DE PROGRESSO (Skills)
+   ========================================= */
+.skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente eliminando o espaço em branco */
+}
+
+.progress-line {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background-color: #000; /* Fundo escuro da barrinha */
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.progress-line span {
+  position: absolute;
+  height: 100%;
+  background-color: var(--main-color);
+  border-radius: 10px;
+  width: 0;
+  /* Animação suave ao carregar a barra */
+  transition: width 1.5s ease-in-out; 
+}
+
+/* Tamanhos individuais para cada Skill (ajuste as porcentagens como preferir!) */
+.anima-scroll .figma { width: 60%; }
+.anima-scroll .photoshop { width: 50%; }
+.anima-scroll .wordpress { width: 70%; }
+.anima-scroll .python { width: 40%; }
+.anima-scroll .vue { width: 45%; }
+.anima-scroll .flutter { width: 30%; }
+.anima-scroll .canva { width: 90%; }
+.anima-scroll .excel { width: 85%; } /* Nível avançado que você possui */
+
+@media (max-width: 600px) {
+  /* Diminui a fonte da animação para caber na tela do celular */
+  .typing-text { font-size: 18px; }
+  .typing-text span::after { height: 100%; } /* Ajusta o tamanho do cursor */
 }
