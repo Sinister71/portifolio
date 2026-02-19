@@ -260,6 +260,7 @@ span {
 
 .typing-text span {
   position: relative;
+  padding-right: 9px;
 }
 
 .typing-text span::before{
@@ -275,7 +276,7 @@ span {
   width: calc(100% + 8px);
   height: 100%;
   border-left: 3px solid var(--bg-color);
-  right: -8;
+  right: -8px;
   animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
 }
 
@@ -284,11 +285,11 @@ span {
 }
 
 @keyframes words {
-  0%, 20% { content: 'Estudante de ADS'; }
+  0%, 20% { content: 'Desenvolvedor Web'; }
   21%, 40% { content: 'Desenvolvedor de Software'; }
   41%, 60% { content: 'Focado em Qualidade'; }
   61%, 80% { content: 'Entusiasta Tech'; }
-  81%, 100% { content: 'Futuro Gestor'; }
+  81%, 100% { content: 'Especialista em Licitação'; }
 }
 
 @keyframes typing {
