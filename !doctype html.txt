@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Black P.</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head> 
+<body>
+    <header class="header">
+        <a href="#home" class="logo">Thiago</a>
+
+        <i class="fa-solid fa-bars icone-menu"></i>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#formacao">Formação</a>
+            <a href="#skills">Skills</a>
+            <a href="#experiencia">Experiência</a>
+            <a href="#contact">Contato</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-img">
+            <img src="imagens/Perfil_t.jpg" alt="Perfil Profissional">
+        </div>
+        <div class="home-content">
+            <h1>Olá, sou o <span>Thiago</span></h1>
+            <h3 class="typing-text">eu sou <span></span></h3>
+            <p>
+                Me chamo Thiago Moreira, tenho 26 anos e sou formado em Análise e Desenvolvimento de Sistemas.
+                Uno o rigor analítico da gestão pública e dos processos administrativos à engenharia de software e automação.
+                Com sólida atuação em compras governamentais sob a égide da Lei nº 14.133/21, desenvolvo soluções digitais,
+                dashboards e fluxos operacionais que eliminam gargalos, mitigam riscos e transformam rotinas complexas em entregas ágeis e eficientes.
+            </p>
+
+            <div class="social-icon">
+                <a href="https://github.com/SEU_USUARIO" target="_blank" rel="noopener noreferrer" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://wa.me/5565999999999?text=Olá%20Thiago,%20vi%20seu%20portfólio%20e%20gostaria%20de%20conversar!" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+            <a href="#contact" class="btn">Contrate-me</a>
+        </div>
+    </section>
+
+    <!-- Experiência Acadêmica: 3 blocos -->
+    <section class="services" id="formacao">
+        <h2 class="heading">Experiência <span>Acadêmica</span></h2>
+
+        <div class="services-container">
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Graduação Superior</h4>
+                    <p><strong>Análise e Desenvolvimento de Sistemas</strong><br>
+                       Formação superior completa com ênfase em engenharia de software, arquitetura de dados, desenvolvimento full stack e qualidade técnica.</p>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Ensino Técnico</h4>
+                    <p><strong>Técnico em Informática (IFMT)</strong><br>
+                       Formação de base (2015–2018). Fundamentos de lógica, suporte estruturado, arquitetura de computadores e redes locais.</p>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Gestão & Contratações</h4>
+                    <p><strong>Planejamento de Contratações e Gestão Contratual</strong><br>
+                       Capacitação técnica com domínio operacional da Nova Lei de Licitações (Lei nº 14.133/21), confecção de ETP/TR, fiscalização e controle de riscos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2 class="heading">Skills</h2>
+        <div class="container">
+            <div class="row" id="skillsContainer">
+                <div class="bar">
+                    <div class="info">
+                        <img src="imagens/skill1.png" alt="Ícone Figma"/>
+                        <span>Figma</span>
+                    </div>
+                    <div class="progress-line"><span class="figma"></span></div>
+                </div>
+                 <div class="bar">
+                    <div class="info">
+                        <img src="imagens/skill2.png" alt="Ícone Photoshop"/>
+                        <span>Photoshop</span>
+                    </div>
+                    <div class="progress-line"><span class="photoshop"></span></div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img src="imagens/skill3.png" alt="Ícone WordPress"/>
+                        <span>WordPress</span>
+                    </div>
+                    <div class="progress-line"><span class="wordpress"></span></div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img src="imagens/skill4.png" alt="Ícone Python"/>
+                        <span>Python</span>
+                    </div>
+                    <div class="progress-line"><span class="python"></span></div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img src="imagens/skill5.png" alt="Ícone Vue"/>
+                        <span>Vue Js</span>
+                    </div>
+                    <div class="progress-line"><span class="vue"></span></div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img src="imagens/skill6.png" alt="Ícone Flutter"/>
+                        <span>Flutter</span>
+                    </div>
+                    <div class="progress-line"><span class="flutter"></span></div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img src="imagens/skill7.png" alt="Ícone Canva"/>
+                        <span>Canva</span>
+                    </div>
+                    <div class="progress-line"><span class="canva"></span></div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                        <img src="imagens/skill8.png" alt="Ícone Excel"/>
+                        <span>Excel</span>
+                    </div>
+                    <div class="progress-line"><span class="excel"></span></div>
+                </div>
+            </div>
+        </div>              
+    </section>
+
+    <!-- Linha do Tempo com dados reais dos registros profissionais -->
+    <section class="education" id="experiencia">
+        <h2 class="heading">Minha <span>Experiência</span></h2>
+        <div class="timeline">
+            <!-- 1: SENAC -->
+            <div class="container right">
+                <div class="content">
+                    <div class="tag">
+                        <h2>SENAC</h2>
+                        <span class="periodo">14/03/2022 – Atual</span>
+                    </div>
+                    <div class="decs">
+                        <p class="cargo"><strong>Assistente de Licitação</strong></p>
+                        <ul class="lista-atividades">
+                            <li>Gestão de riscos em certames e ações preventivas de mitigação.</li>
+                            <li>Acompanhamento de processos por relatórios dinâmicos e sistemas internos.</li>
+                            <li>Conformidade com regulamentações legais e fiscais da Lei nº 14.133/21.</li>
+                            <li>Elaboração de minutas de editais, termos de referência (TR) e propostas.</li>
+                            <li>Membro de Comissão Permanente de Licitação e contato técnico com fornecedores.</li>
+                            <li>Fiscalização de obrigações contratuais e pesquisas de preços de mercado.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2: Grupo SC -->
+            <div class="container left">
+                <div class="content">
+                    <div class="tag">
+                        <h2>Santa Cruz (Grupo SC)</h2>
+                        <span class="periodo">03/08/2020 – 01/10/2021</span>
+                    </div>
+                    <div class="decs">
+                        <p class="cargo"><strong>Líder de Logística</strong></p>
+                        <ul class="lista-atividades">
+                            <li>Liderança operacional, alinhamento de metas e capacitação de colaboradores.</li>
+                            <li>Acompanhamento de KPIs: metas de expedição, giro, absenteísmo e turnover.</li>
+                            <li>Conferência fiscal (entrada de NFs, emissão de NFD e estornos).</li>
+                            <li>Coordenação de inventários gerais e cíclicos e controle de porta-paletes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3: RGIS -->
+            <div class="container right">
+                <div class="content">
+                    <div class="tag">
+                        <h2>RGIS</h2>
+                        <span class="periodo">24/01/2019 – 28/02/2019</span>
+                    </div>
+                    <div class="decs">
+                        <p class="cargo"><strong>Auditor de Inventário</strong></p>
+                        <ul class="lista-atividades">
+                            <li>Auditoria e contagem física de estoques com coletores de dados.</li>
+                            <li>Emissão e consolidação de relatórios de divergência de mercadorias.</li>
+                            <li>Mapeamento, endereçamento de gôndolas e conferência de paletes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4: Projetos e Desenvolvimento -->
+            <div class="container left">
+                <div class="content">
+                    <div class="tag">
+                        <h2>Projetos e Soluções Digitais</h2>
+                        <span class="periodo">Atuação Contínua</span>
+                    </div>
+                    <div class="decs">
+                        <p class="cargo"><strong>Desenvolvedor de Software & Automação</strong></p>
+                        <ul class="lista-atividades">
+                            <li>Construção de aplicações web e painéis analíticos com foco em usabilidade.</li>
+                            <li>Automação de planilhas e rotinas documentais para redução de retrabalho.</li>
+                            <li>Prototipação ágil de interfaces no Figma e implementação com código limpo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="contact" id="contact">
+        <h2 class="heading">Entre em <span>Contato</span></h2>
+        <form action="#">
+            <div class="input-box">
+                <div class="input-field">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="Nome" placeholder="Seu nome" required autocomplete="name">
+                </div>
+                <div class="input-field">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="Email" placeholder="seuemail@exemplo.com" required autocomplete="email">
+                </div>
+                <div class="input-field">
+                    <label for="telefone">Número de telefone / WhatsApp</label>
+                    <input type="tel" id="telefone" name="Telefone" placeholder="(65) 99999-9999" required inputmode="numeric">
+                </div>
+                <div class="input-field">
+                    <label for="assunto">Assunto</label>
+                    <input type="text" id="assunto" name="Assunto" placeholder="Motivo do contato" required>
+                </div>
+            </div>
+            <div class="textarea-field">
+                <label for="mensagem">Mensagem</label>
+                <textarea name="Mensagem" id="mensagem" cols="30" rows="8" placeholder="Escreva sua mensagem aqui..." required></textarea>
+            </div>
+            <input type="submit" value="Enviar Mensagem" class="btn">
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="social">
+            <a href="https://github.com/SEU_USUARIO" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+            <a href="https://wa.me/5565999999999" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <ul class="list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#formacao">Formação</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experiencia">Experiência</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+        <p class="copyright">
+            Copyright © 2026 | <a href="#">Black P.</a> Todos os direitos reservados.
+        </p>
+    </footer>
+
+    <a href="#" class="btn-topo"><i class="fa-solid fa-arrow-up"></i></a>
+    <script src="ativos/script.js"></script>
+</body>
+</html>
