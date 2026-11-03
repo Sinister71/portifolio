@@ -298,66 +298,119 @@ span {
   box-shadow: 0 0 25px var(--main-color);
 }
 
+
+
 /* =========================================
    ANIMAÇÃO DE DIGITAÇÃO - MIDNIGHT TECH
    ========================================= */
+
 .typing-text {
-  font-size: 3.2rem;
-  font-weight: 600;
-  min-width: 280px;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    column-gap: 0.8rem;
+    font-size: 3.2rem;
+    font-weight: 600;
 }
 
-.typing-text span {
-  position: relative;
-  display: inline-block;
-  flex: 0 1 27ch;
-  max-width: 100%;
-  min-width: 0;
-  vertical-align: bottom;
-  padding-right: 9px;
-  white-space: nowrap;
+/* Área reservada para o texto */
+.typing-text > span {
+    position: relative;
+    display: inline-block;
+    width: 27ch;
+    max-width: 100%;
+    flex: 0 1 27ch;
+    height: 1.3em;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-.typing-text span::before {
-  content: 'Desenvolvedor de Software';
-  display: inline-block;
-  color: var(--main-color);
-  animation: words 20s steps(1, end) infinite;
+/* Texto animado + cursor integrado */
+.typing-text > span::before {
+    content: 'Desenvolvedor de Software';
+
+    display: inline-block;
+    width: 0;
+    max-width: max-content;
+    overflow: hidden;
+    white-space: nowrap;
+    vertical-align: bottom;
+
+    color: var(--main-color);
+
+    /* Cursor integrado ao texto */
+    border-right: 2px solid var(--main-color);
+    padding-right: 0.25em;
+
+    /* Permite animar de 0 até max-content */
+    interpolate-size: allow-keywords;
+
+    animation:
+        words 16s steps(1, end) infinite,
+        typing 16s steps(27, end) infinite,
+        cursor 0.7s step-end infinite;
 }
 
-.typing-text span::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: var(--bg-color);
-  position: absolute;
-  width: calc(100% + 8px);
-  height: 100%;
-  border-left: 2px solid var(--main-color);
-  right: -8px;
-  animation:
-        cursor 0.7s step-end infinite,
-        typing 20s steps(27, end) infinite;
-}
+/* Alternância das quatro frases */
+@keyframes words {
+    0%, 25% {
+        content: 'Desenvolvedor de Software';
+    }
 
-@keyframes cursor {
-    50% {
-        border-left-color: transparent;
+    25.01%, 50% {
+        content: 'Experiente em Processos';
+    }
+
+    50.01%, 75% {
+        content: 'Especialista em Licitação';
+    }
+
+    75.01%, 100% {
+        content: 'Entusiasta Tech';
     }
 }
 
-@keyframes words {
-  0%, 20% { content: 'Desenvolvedor de Software'; }
-  20.01%, 40% { content: 'Experiente em Processos'; }
-  40.01%, 60% { content: 'Especialista em Licitação'; }
-  60.01%, 80% { content: 'Focado em Qualidade'; }
-  80.01%, 100% { content: 'Entusiasta Tech'; }
-}
+/* Digitação, pausa e apagamento */
 
 @keyframes typing {
-  10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% { width: 0; }
-  5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% { width: calc(100% + 8px); }
+    /* Frase 1 */
+    0%, 25% {
+        width: 0;
+    }
+    10%, 20% {
+        width: max-content;
+    }
+
+    /* Frase 2 */
+    25%, 50% {
+        width: 0;
+    }
+    35%, 45% {
+        width: max-content;
+    }
+
+    /* Frase 3 */
+    50%, 75% {
+        width: 0;
+    }
+    60%, 70% {
+        width: max-content;
+    }
+
+    /* Frase 4 */
+    75%, 100% {
+        width: 0;
+    }
+    85%, 95% {
+        width: max-content;
+    }
+}
+
+/* Cursor piscando */
+@keyframes cursor {
+    50% {
+        border-right-color: transparent;
+    }
 }
 
 /* =========================================
@@ -824,9 +877,82 @@ input[type="tel"] {
     .typing-text {
         justify-content: center;
         font-size: 2.5rem;
+        min-width: 0;
     }
 
-    .typing-text span {
+    .typing-text > span {
+        width: 27ch;
+        max-width: 100%;
         flex-basis: 27ch;
     }
+}
+
+/* =========================================
+   AJUSTES PARA SMARTPHONES COM ATÉ 400px
+   ========================================= */
+
+@media (max-width: 400px) {
+
+    /* Aproveitamento da largura disponível */
+    .home {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .home-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    /* Título de apresentação */
+    .home-content h1 {
+        font-size: clamp(2.8rem, 8vw, 3.4rem);
+        line-height: 1.2;
+        max-width: 100%;
+    }
+
+    /* Animação e texto introdutório */
+    .typing-text {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: baseline;
+        gap: 0 0.6rem;
+
+        width: 100%;
+        min-width: 0;
+
+        font-size: clamp(1.9rem, 5.2vw, 2.2rem);
+        line-height: 1.35;
+    }
+
+    /* Área reservada para a frase */
+    .typing-text > span {
+        display: inline-block;
+
+        width: min(27ch, 100%);
+        flex: 0 0 min(27ch, 100%);
+
+        max-width: 100%;
+        min-width: 0;
+        height: 1.35em;
+
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    /* Texto de apresentação */
+    .home-content p {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: clamp(1.5rem, 4vw, 1.7rem);
+        line-height: 1.65;
+
+        overflow-wrap: break-word;
+    }
+
 }
