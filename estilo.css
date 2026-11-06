@@ -18,6 +18,7 @@
     --text-color: #E8EEF7;
     --main-color: #38BDF8;
     --card-bg: #172338;
+    --contact-bg-color: #0E192B;
 
     /* CORES AUXILIARES */
     --accent-color: #2DD4BF;
@@ -311,57 +312,83 @@ span {
   box-shadow: 0 0 25px var(--main-color);
 }
 
-
-
 /* =========================================
-   ANIMAÇÃO DE DIGITAÇÃO - MIDNIGHT TECH
+   TEXTO ANIMADO - LARGURA INTRÍNSECA
    ========================================= */
 
 .typing-text {
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
+
     column-gap: 0.8rem;
+    row-gap: 0.2rem;
+
+    width: 100%;
+    min-width: 0;
+
     font-size: 3.2rem;
     font-weight: 600;
 }
 
-/* Área reservada para o texto */
-.typing-text > span {
+/* Área que reserva a largura real da frase */
+.typing-word {
     position: relative;
     display: inline-block;
-    width: 27ch;
+
+    width: max-content;
     max-width: 100%;
-    flex: 0 1 27ch;
+    min-width: 0;
+
+    flex: 0 1 auto;
+
     height: 1.3em;
-    overflow: hidden;
+    vertical-align: baseline;
     white-space: nowrap;
+    overflow: visible;
 }
 
-/* Texto animado + cursor integrado */
-.typing-text > span::before {
+/* Texto digitado */
+.typing-word::before {
     content: 'Desenvolvedor de Software';
 
-    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+
     width: 0;
-    max-width: max-content;
+    max-width: 100%;
+
     overflow: hidden;
     white-space: nowrap;
-    vertical-align: bottom;
 
     color: var(--main-color);
 
-    /* Cursor integrado ao texto */
     border-right: 2px solid var(--main-color);
     padding-right: 0.25em;
 
-    /* Permite animar de 0 até max-content */
     interpolate-size: allow-keywords;
 
     animation:
         words 16s steps(1, end) infinite,
         typing 16s steps(27, end) infinite,
         cursor 0.7s step-end infinite;
+}
+
+/* Reserva invisível da maior frase */
+.typing-word::after {
+    content: attr(data-text);
+
+    display: inline-block;
+    visibility: hidden;
+
+    height: 0;
+    line-height: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 /* Alternância das quatro frases */
@@ -629,6 +656,22 @@ span {
   margin-left: -2px;
 }
 
+/* TÍTULO FIXO DA EXPERIÊNCIA */
+
+.education .heading {
+    position: sticky;
+    top: 8rem;
+
+    z-index: 50;
+
+    background: var(--second-bg-color);
+
+    padding: 1rem 0 1.5rem;
+    margin-bottom: 4rem;
+
+    isolation: isolate;
+}
+
 .education .container {
   padding: 1.5rem 4rem;
   position: relative;
@@ -756,7 +799,8 @@ span {
    CONTATO (LABELS LEGÍVEIS E TEL SEM SETAS)
    ========================================= */
 .contact {
-  background: var(--second-bg-color);
+    background: var(--contact-bg-color);
+    border-top: 1px solid var(--border-color);
 }
 
 .contact form {
@@ -969,7 +1013,7 @@ input[type="tel"] {
 }
 
 /* =========================================
-   RESPONSIVIDADE DA HOME - SMARTPHONES
+   TEXTO ANIMADO - RESPONSIVIDADE
    ========================================= */
 
 @media (max-width: 480px) {
@@ -992,41 +1036,45 @@ input[type="tel"] {
         line-height: 1.2;
         overflow-wrap: break-word;
     }
-
-    /* Apresentação animada */
     .typing-text {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        align-items: baseline;
         justify-content: center;
+        flex-wrap: wrap;
 
         width: 100%;
         min-width: 0;
-        gap: 0.3rem;
 
-        font-size: clamp(2rem, 5.5vw, 2.5rem);
+        column-gap: 0.8rem;
+        row-gap: 0.3rem;
+
+        font-size: clamp(1.9rem, 5.2vw, 2.2rem);
         line-height: 1.35;
         text-align: center;
     }
 
-    /* Frase ocupa uma linha exclusiva */
-    .typing-text > span {
-        display: block;
-        flex: 0 1 auto;
+    /* Preserva a largura intrínseca */
+    .typing-word {
+        display: inline-block;
 
-        width: 100%;
+        position: relative;
+
+        width: max-content;
         max-width: 100%;
         min-width: 0;
-        height: 1.5em;
 
-        overflow: hidden;
+        flex: 0 1 auto;
+
+        height: 1.3em;
+
         white-space: nowrap;
-        text-align: center;
+        overflow: visible;
     }
 
-    /* Texto animado */
-    .typing-text > span::before {
+    /* Texto digitado */
+    .typing-word::before {
         font-size: inherit;
+        max-width: 100%;
     }
 
     /* Descrição profissional */
