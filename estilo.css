@@ -373,7 +373,7 @@ span {
 
     animation:
         words 16s steps(1, end) infinite,
-        typing 16s steps(27, end) infinite,
+        typing 16s linear infinite,
         cursor 0.7s step-end infinite;
 }
 
@@ -410,39 +410,77 @@ span {
     }
 }
 
-/* Digitação, pausa e apagamento */
+
+/* Digitação e apagamento com steps individuais */
 
 @keyframes typing {
-    /* Frase 1 */
-    0%, 25% {
+
+    /* FRASE 1 - Desenvolvedor de Software */
+    0% {
         width: 0;
-    }
-    10%, 20% {
-        width: max-content;
+        animation-timing-function: steps(25, end);
     }
 
-    /* Frase 2 */
-    25%, 50% {
-        width: 0;
-    }
-    35%, 45% {
+    10% {
         width: max-content;
+        animation-timing-function: linear;
     }
 
-    /* Frase 3 */
-    50%, 75% {
-        width: 0;
-    }
-    60%, 70% {
+    20% {
         width: max-content;
+        animation-timing-function: steps(25, end);
     }
 
-    /* Frase 4 */
-    75%, 100% {
+    25% {
         width: 0;
+        animation-timing-function: steps(23, end);
     }
-    85%, 95% {
+
+    /* FRASE 2 - Experiente em Processos */
+    35% {
         width: max-content;
+        animation-timing-function: linear;
+    }
+
+    45% {
+        width: max-content;
+        animation-timing-function: steps(23, end);
+    }
+
+    50% {
+        width: 0;
+        animation-timing-function: steps(25, end);
+    }
+
+    /* FRASE 3 - Especialista em Licitação */
+    60% {
+        width: max-content;
+        animation-timing-function: linear;
+    }
+
+    70% {
+        width: max-content;
+        animation-timing-function: steps(25, end);
+    }
+
+    75% {
+        width: 0;
+        animation-timing-function: steps(15, end);
+    }
+
+    /* FRASE 4 - Entusiasta Tech */
+    85% {
+        width: max-content;
+        animation-timing-function: linear;
+    }
+
+    95% {
+        width: max-content;
+        animation-timing-function: steps(15, end);
+    }
+
+    100% {
+        width: 0;
     }
 }
 
@@ -466,7 +504,7 @@ span {
 }
 
 .services .heading {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .services-container {
@@ -525,112 +563,187 @@ span {
 }
 
 /* =========================================
-   SKILLS (EFEITO VAZADO E SEM PERDA DE FOCO)
+   SKILLS - COMPETÊNCIAS PROFISSIONAIS
    ========================================= */
 .skills {
-  background: var(--bg-color);
-  color: var(--text-color);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+    background: var(--bg-color);
+    color: var(--text-color);
+
+    min-height: auto;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 10rem 9%;
 }
 
 .skills .heading {
-  color: var(--text-color);
+    color: var(--text-color);
+    margin-bottom: 4.5rem;
 }
 
-.skills .container {
-  background: var(--card-bg);
-  color: var(--text-color);
-  border-radius: 1.6rem;
-  padding: 3.5rem;
-  width: 85%;
-  max-width: 1100px;
-  margin: 0 auto;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+/* Grade de grupos */
+.skills-groups {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 2.5rem;
+
+    max-width: 1200px;
+    width: 100%;
+
+    margin: 0 auto;
 }
 
-.skills .container .row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2.2rem;
+/* Cards dos grupos */
+.skill-group {
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+    border-radius: 1.6rem;
+
+    padding: 2.8rem 2.2rem;
+
+    box-shadow: 0 10px 25px var(--shadow-color);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.skills .container .bar {
-  padding: 1.8rem 1.4rem;
-  border-radius: 1.2rem;
-  background: var(--second-bg-color);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  /* Proteção contra anti-aliasing borrado */
-  backface-visibility: hidden;
-  -webkit-font-smoothing: subpixel-antialiased;
-  transform: translateZ(0);
-  will-change: transform, background, border-color, box-shadow;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-/* Efeito vazado dinâmico com iluminação cyan */
-.skills .container .bar:hover {
-    background: var(--second-bg-color);
-    border-color: var(--main-color);
-    box-shadow: 0 0 20px var(--main-glow);
+.skill-group:hover {
     transform: translateY(-5px);
+
+    border-color: var(--main-color);
+
+    box-shadow: 0 0 22px var(--main-glow);
 }
 
-.skills .container .bar .info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.2rem;
+/* Cabeçalho de cada grupo */
+.skill-group-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+
+    margin-bottom: 2.5rem;
 }
 
-.skills .container .bar .info img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  display: block;
-  /* Mantém nitidez no render */
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+.skill-group-header > i {
+    color: var(--main-color);
+    font-size: 2.8rem;
+    margin-top: 0.3rem;
 }
 
-.skills .container .bar .info span {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: var(--text-color);
+.skill-group-header h3 {
+    color: var(--text-color);
+    font-size: 1.85rem;
+    font-weight: 600;
+    line-height: 1.35;
 }
 
-.progress-line {
-  position: relative;
-  width: 100%;
-  height: 8px;
-  background-color: var(--bg-color);
-  border-radius: 10px;
-  margin-top: 1.6rem;
-  overflow: hidden;
+.skill-group-header p {
+    color: var(--muted-color);
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin-top: 0.5rem;
 }
 
-.progress-line span {
-  position: absolute;
-  height: 100%;
-  background-color: var(--main-color);
-  border-radius: 10px;
-  width: 0;
-  transition: width 1.5s ease-in-out;
+/* Ferramentas e competências */
+.skill-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
 }
 
-.anima-scroll .figma { width: 65%; }
-.anima-scroll .photoshop { width: 55%; }
-.anima-scroll .wordpress { width: 70%; }
-.anima-scroll .python { width: 50%; }
-.anima-scroll .vue { width: 45%; }
-.anima-scroll .flutter { width: 40%; }
-.anima-scroll .canva { width: 90%; }
-.anima-scroll .excel { width: 90%; }
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+
+    min-width: 0;
+
+    padding: 1.2rem 1rem;
+
+    background: var(--second-bg-color);
+
+    border: 1px solid transparent;
+    border-radius: 0.9rem;
+
+    color: var(--muted-color);
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.skill-item i {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.skill-item span {
+    color: inherit;
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    overflow-wrap: anywhere;
+}
+
+.skill-item:hover {
+    color: var(--text-color);
+    background: rgba(56, 189, 248, 0.08);
+    border-color: var(--border-color);
+    transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 1100px) {
+    .skills-groups {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .skill-group:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills {
+        padding: 8rem 5%;
+    }
+
+    .skills-groups {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-group:last-child {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-group {
+        padding: 2.2rem 1.6rem;
+    }
+
+    .skill-group-header h3 {
+        font-size: 1.8rem;
+    }
+
+    .skill-list {
+        gap: 1rem;
+    }
+
+    .skill-item {
+        padding: 1.1rem 0.8rem;
+    }
+}
 
 /* =========================================
    EXPERIÊNCIA (TIMELINE)
@@ -745,10 +858,51 @@ span {
     margin-bottom: 0.5rem;
 }
 
-/* Destaque do vínculo atual */
-.education .content.current-job {
-    border-color: var(--main-color);
-    box-shadow: 0 0 20px var(--main-glow);
+/* =========================================
+   DIFERENCIAL PROFISSIONAL - SENAC
+   ========================================= */
+
+.education .professional-intro {
+    color: var(--text-color) !important;
+    font-size: 1.55rem !important;
+    font-weight: 500;
+    line-height: 1.7 !important;
+}
+
+.education .professional-highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+
+    padding: 1.6rem;
+    margin: 2rem 0;
+
+    background: rgba(56, 189, 248, 0.07);
+    border-left: 3px solid var(--main-color);
+    border-radius: 0.8rem;
+}
+
+.education .professional-highlight > i {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-top: 0.3rem;
+}
+
+.education .professional-highlight strong {
+    color: var(--main-color);
+    font-size: 1.5rem;
+}
+
+.education .professional-highlight p {
+    margin-top: 0.5rem;
+    color: var(--muted-color) !important;
+}
+
+.education .experience-subtitle {
+    color: var(--main-color);
+    font-size: 1.65rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
 }
 
 .education .container {
@@ -952,9 +1106,6 @@ input[type="tel"] {
   .services-container {
     grid-template-columns: repeat(2, 1fr);
   }
-  .skills .container .row {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 @media (max-width: 995px) {
@@ -962,7 +1113,7 @@ input[type="tel"] {
     flex-direction: column-reverse;
     text-align: center;
     gap: 4rem;
-    padding-top: 13rem;
+    padding-top: 10rem;
   }
   .home-content p {
     margin: 0 auto;
@@ -985,13 +1136,6 @@ input[type="tel"] {
   .services-container {
     grid-template-columns: 1fr;
   }
-  .skills .container {
-    width: 95%;
-    padding: 2.5rem 1.5rem;
-  }
-  .skills .container .row {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .education .timeline::after {
     left: 20px;
   }
@@ -1010,6 +1154,18 @@ input[type="tel"] {
   .contact form .input-box {
     grid-template-columns: 1fr;
   }
+    .services {
+      padding-top: 3.5rem;
+    }
+    .skills {
+      padding-top: 3.5rem;
+    }
+    .education {
+      padding-top: 3.5rem;
+    }
+    .contact {
+      padding-top: 3.5rem;
+    }
 }
 
 /* =========================================
@@ -1036,6 +1192,7 @@ input[type="tel"] {
         line-height: 1.2;
         overflow-wrap: break-word;
     }
+    
     .typing-text {
         display: flex;
         align-items: baseline;
@@ -1045,37 +1202,48 @@ input[type="tel"] {
         width: 100%;
         min-width: 0;
 
-        column-gap: 0.8rem;
-        row-gap: 0.3rem;
+        column-gap: 0.7rem;
+        row-gap: 0.2rem;
 
-        font-size: clamp(1.9rem, 5.2vw, 2.2rem);
+        /* Tamanho de "Eu sou," */
+        font-size: clamp(2rem, 5.4vw, 2.5rem);
+
         line-height: 1.35;
         text-align: center;
-    }
+}
 
-    /* Preserva a largura intrínseca */
-    .typing-word {
-        display: inline-block;
+  /* Somente a frase animada */
+    .typing-text .typing-word {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    margin-inline: auto;
 
-        position: relative;
+    /* Redução independente da animação */
+      font-size: 0.77em;
+      letter-spacing: -0.02em;
 
-        width: max-content;
-        max-width: 100%;
-        min-width: 0;
+      width: max-content;
+      max-width: 100%;
+      min-width: 0;
 
-        flex: 0 1 auto;
+      flex: 0 1 auto;
 
-        height: 1.3em;
+      height: 1.3em;
+      line-height: 1.3;
 
-        white-space: nowrap;
-        overflow: visible;
-    }
+      white-space: nowrap;
+      overflow: visible;
+}
 
-    /* Texto digitado */
+  /* Texto que está sendo digitado */
     .typing-word::before {
-        font-size: inherit;
-        max-width: 100%;
-    }
+    font-size: inherit;
+    letter-spacing: inherit;
+    max-width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
     /* Descrição profissional */
     .home-content p {
