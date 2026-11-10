@@ -773,7 +773,7 @@ span {
 
 .education .heading {
     position: sticky;
-    top: 8rem;
+    top: 7rem;
 
     z-index: 50;
 
@@ -1165,6 +1165,24 @@ input[type="tel"] {
     }
     .contact {
       padding-top: 3.5rem;
+    }
+}
+
+/* REFINAMENTO DE ESPAÇAMENTO - DESKTOP */
+@media (min-width: 769px) {
+
+    .services,
+    .skills,
+    .education,
+    .contact {
+        padding-top: 5.5rem;
+    }
+
+    .services .heading,
+    .skills .heading,
+    .education .heading,
+    .contact .heading {
+        margin-bottom: 3rem;
     }
 }
 
