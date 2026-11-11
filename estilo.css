@@ -167,17 +167,66 @@ section {
   padding: 10rem 9% 6rem;
 }
 
+
 /* =========================================
-   HOME & FOTO PROFISSIONAL RETANGULAR
+   HOME - COMPOSIÇÃO DESKTOP
    ========================================= */
 .home {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+
+    min-height: 100vh;
+    padding: 12rem 9% 6rem;
+}
+
+.home-img {
+    flex: 0 1 42%;
+    min-width: 0;
+}
+
+.home-content {
+    flex: 1 1 58%;
+    min-width: 0;
+    text-align: left;
+}
+
+.home-img {
+    position: relative;
+    display: flex;
     justify-content: center;
     align-items: center;
+    isolation: isolate;
+}
 
-    gap: clamp(3rem, 5vw, 7rem);
+.home-img::before {
+    content: "";
+    position: absolute;
+    inset: 12%;
 
-    background: var(--bg-color);
+    background: radial-gradient(
+        circle,
+        rgba(45, 212, 191, 0.13),
+        transparent 70%
+    );
+
+    filter: blur(45px);
+    z-index: -1;
+}
+
+.home-img img {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+    width: clamp(340px, 34vw, 460px);
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+    filter: drop-shadow(0 18px 35px rgba(0, 0, 0, 0.30));
 }
 
 .home-content h1 {
@@ -202,46 +251,6 @@ span {
   line-height: 1.7;
   max-width: 58rem;
   color: var(--muted-color);
-}
-
-.home-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.home-img img {
-    display: block;
-
-    width: clamp(280px, 28vw, 360px);
-    max-width: 100%;
-    min-width: 0;
-
-    height: auto;
-    aspect-ratio: 1847 / 2037;
-
-    object-fit: cover;
-    object-position: center;
-
-    border-radius: 2.4rem;
-    border: 2px solid var(--main-color);
-
-    box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.35),
-        0 0 20px var(--main-glow);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.home-img img:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 22px 50px rgba(0, 0, 0, 0.45),
-        0 0 28px var(--main-glow);
 }
 
 /* Ícones Sociais */
@@ -507,10 +516,6 @@ span {
     margin-bottom: 3rem;
 }
 
-.services-container {
-    margin-bottom: 0;
-}
-
 .heading {
   text-align: center;
   margin-bottom: 5rem;
@@ -526,6 +531,7 @@ span {
   gap: 3rem;
   max-width: 1200px;
   margin: 0 auto;
+  margin-bottom: 0;
 }
 
 .service-box {
@@ -839,7 +845,7 @@ span {
 
 /* Descrição */
 .education .content .decs p {
-    color: var(--muted-color);
+    color: var(--text-color);
     font-size: 1.45rem;
     line-height: 1.65;
     margin-bottom: 1rem;
@@ -914,10 +920,6 @@ span {
     padding-bottom: 2rem;
 }
 
-.education .content {
-    padding: 2.5rem;
-}
-
 .education .left { left: 0; }
 .education .right { left: 50%; }
 .education .right::after { left: -14px; }
@@ -941,12 +943,6 @@ span {
   font-weight: 600;
   color: var(--main-color);
   margin-bottom: 0.8rem;
-}
-
-.education .content .decs p {
-  font-size: 1.45rem;
-  line-height: 1.6;
-  color: #e5e7eb;
 }
 
 /* =========================================
@@ -1109,24 +1105,39 @@ input[type="tel"] {
 }
 
 @media (max-width: 995px) {
-  .home {
-    flex-direction: column-reverse;
-    text-align: center;
-    gap: 4rem;
-    padding-top: 10rem;
-  }
-  .home-content p {
-    margin: 0 auto;
-  }
-  .home-img img {
-    width: clamp(240px, 62vw, 300px);
-    max-width: 100%;
-    min-width: 0;
-}
-  .social-icon {
-    display: flex;
-    justify-content: center;
-  }
+    .home {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 3rem;
+        padding: 10rem 6% 6rem;
+    }
+
+    .home-content {
+        flex: none;
+        width: 100%;
+        max-width: 65rem;
+        text-align: center;
+    }
+
+    .home-content p {
+        margin: 0 auto;
+    }
+
+    .home-img {
+        width: 100%;
+    }
+
+    .home-img img {
+        width: clamp(260px, 55vw, 340px);
+        max-width: 100%;
+    }
+
+    .social-icon {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 768px) {
