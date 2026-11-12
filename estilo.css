@@ -366,25 +366,25 @@ span {
     left: 0;
 
     display: block;
+    width: max-content;
+    max-width: none;
 
-    width: 0;
-    max-width: 100%;
-
-    overflow: hidden;
     white-space: nowrap;
+    overflow: hidden;
 
     color: var(--main-color);
 
     border-right: 2px solid var(--main-color);
     padding-right: 0.25em;
 
-    interpolate-size: allow-keywords;
+    clip-path: inset(0 100% 0 0);
 
     animation:
         words 16s steps(1, end) infinite,
         typing 16s linear infinite,
         cursor 0.7s step-end infinite;
 }
+
 
 /* Reserva invisível da maior frase */
 .typing-word::after {
@@ -420,78 +420,69 @@ span {
 }
 
 
-/* Digitação e apagamento com steps individuais */
-
+/* Digitação e apagamento com clip-path */
 @keyframes typing {
 
     /* FRASE 1 - Desenvolvedor de Software */
     0% {
-        width: 0;
+        clip-path: inset(0 100% 0 0);
         animation-timing-function: steps(25, end);
     }
-
     10% {
-        width: max-content;
+        clip-path: inset(0 0 0 0);
         animation-timing-function: linear;
     }
-
     20% {
-        width: max-content;
+        clip-path: inset(0 0 0 0);
         animation-timing-function: steps(25, end);
     }
-
     25% {
-        width: 0;
+        clip-path: inset(0 100% 0 0);
         animation-timing-function: steps(23, end);
     }
 
     /* FRASE 2 - Experiente em Processos */
     35% {
-        width: max-content;
+        clip-path: inset(0 0 0 0);
         animation-timing-function: linear;
     }
-
     45% {
-        width: max-content;
+        clip-path: inset(0 0 0 0);
         animation-timing-function: steps(23, end);
     }
-
     50% {
-        width: 0;
+        clip-path: inset(0 100% 0 0);
         animation-timing-function: steps(25, end);
     }
 
     /* FRASE 3 - Especialista em Licitação */
     60% {
-        width: max-content;
+        clip-path: inset(0 0 0 0);
         animation-timing-function: linear;
     }
-
     70% {
-        width: max-content;
+        clip-path: inset(0 0 0 0);
         animation-timing-function: steps(25, end);
     }
-
     75% {
-        width: 0;
+        clip-path: inset(0 100% 0 0);
         animation-timing-function: steps(15, end);
     }
 
     /* FRASE 4 - Entusiasta Tech */
     85% {
-        width: max-content;
+        clip-path: inset(0 0 0 0);
         animation-timing-function: linear;
     }
-
     95% {
-        width: max-content;
+        clip-path: inset(0 0 0 0);
         animation-timing-function: steps(15, end);
     }
-
     100% {
-        width: 0;
+        clip-path: inset(0 100% 0 0);
     }
 }
+
 
 /* Cursor piscando */
 @keyframes cursor {
