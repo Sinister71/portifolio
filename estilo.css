@@ -165,6 +165,7 @@ html::-webkit-scrollbar-thumb {
 section {
   min-height: 100vh;
   padding: 10rem 9% 6rem;
+  scroll-margin-top: 11rem;
 }
 
 
@@ -500,11 +501,11 @@ span {
     min-height: auto;
     height: auto;
 
-    padding: 9rem 9% 8rem;
+    padding: 7rem 9% 5rem;
 }
 
 .services .heading {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
 }
 
 .heading {
@@ -529,7 +530,7 @@ span {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 2rem;
-  padding: 3.5rem 2.5rem;
+  padding: 2.5rem 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -617,6 +618,54 @@ span {
     border-color: var(--main-color);
 
     box-shadow: 0 0 22px var(--main-glow);
+}
+
+/* =========================================
+   ANIMAÇÃO DE ENTRADA - GRUPOS DE SKILLS
+   ========================================= */
+
+.js .skills .skill-group {
+    opacity: 0;
+    transform: translateY(28px);
+
+    transition:
+        opacity 0.65s ease var(--reveal-delay, 0s),
+        transform 0.65s ease var(--reveal-delay, 0s),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Grupo visível */
+.js .skills .skill-group.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Preserva o efeito de hover após a entrada */
+.js .skills .skill-group.is-visible:hover {
+    transform: translateY(-5px);
+}
+
+/* Entrada escalonada dos três grupos */
+.js .skills .skill-group:nth-child(1) {
+    --reveal-delay: 0s;
+}
+
+.js .skills .skill-group:nth-child(2) {
+    --reveal-delay: 0.15s;
+}
+
+.js .skills .skill-group:nth-child(3) {
+    --reveal-delay: 0.30s;
+}
+
+/* Respeita a preferência por movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+    .js .skills .skill-group {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 /* Cabeçalho de cada grupo */
@@ -759,7 +808,12 @@ span {
   content: '';
   position: absolute;
   width: 4px;
-  background-color: var(--border-color);
+  background: linear-gradient(
+    to bottom,
+    rgba(56, 189, 248, 0.55),
+    var(--border-color) 50%,
+    rgba(45, 212, 191, 0.35)
+  );
   top: 0;
   bottom: 0;
   left: 50%;
@@ -820,10 +874,19 @@ span {
 /* Período profissional */
 .education .content .job-period {
     display: inline-block;
+
     color: var(--accent-color);
-    font-size: 1.3rem;
+    background: rgba(45, 212, 191, 0.08);
+
+    font-size: 1.25rem;
     font-weight: 500;
+
+    padding: 0.45rem 1rem;
     margin-bottom: 1rem;
+
+    border: 1px solid rgba(45, 212, 191, 0.18);
+    border-radius: 0.6rem;
+    letter-spacing: 0.02rem;
 }
 
 /* Cargo */
@@ -903,8 +966,8 @@ span {
 }
 
 .education .container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
 .education .timeline {
@@ -925,15 +988,38 @@ span {
   transition: border-color 0.3s ease;
 }
 
+/* Destaque da experiência profissional atual */
+.education .content.current-job {
+    border-top: 3px solid var(--main-color);
+
+    background: linear-gradient(
+        145deg,
+        rgba(56, 189, 248, 0.08),
+        var(--card-bg) 45%
+    );
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.18),
+        0 0 18px rgba(56, 189, 248, 0.05);
+}
+
 .education .content:hover {
   border-color: var(--main-color);
 }
 
 .education .content .tag h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--main-color);
-  margin-bottom: 0.8rem;
+    display: table;
+    width: fit-content;
+    max-width: 100%;
+
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--main-color);
+
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+
+    border-bottom: 2px solid rgba(56, 189, 248, 0.35);
 }
 
 /* =========================================
