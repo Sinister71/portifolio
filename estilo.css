@@ -869,6 +869,26 @@ span {
     font-size: 1.2rem;
     color: var(--main-color);
     line-height: 1;
+
+    box-shadow:
+        0 0 0 4px rgba(56, 189, 248, 0.08),
+        0 0 12px rgba(56, 189, 248, 0.18);
+
+    transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.education .container:hover::after {
+    background: var(--main-color);
+    border-color: var(--main-color);
+    color: var(--card-bg);
+    transform: scale(1.12);
+    box-shadow:
+        0 0 0 5px rgba(56, 189, 248, 0.10),
+        0 0 16px rgba(56, 189, 248, 0.28);
 }
 
 /* Período profissional */
@@ -915,7 +935,11 @@ span {
     color: var(--muted-color);
     font-size: 1.35rem;
     line-height: 1.65;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.education .content .decs li::marker {
+    color: var(--main-color);
 }
 
 /* =========================================
@@ -985,7 +1009,10 @@ span {
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 6px 18px var(--shadow-color);
-  transition: border-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 /* Destaque da experiência profissional atual */
@@ -1005,6 +1032,13 @@ span {
 
 .education .content:hover {
   border-color: var(--main-color);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .education .content:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+    }
 }
 
 .education .content .tag h2 {
